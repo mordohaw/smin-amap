@@ -10,13 +10,16 @@ class App extends React.Component {
 		return(
 
 			
-			<div className="app">
+			<div className="amap">
 			
-			<StorePicker/>
+			<div className="menu">
+				<Header tagline="Des bons légumes"/>
+			</div>
+				{/*<StorePicker/>*/}
 
-			<Header/>
-			<Order/>
-			<Inventory/>
+				
+				<Order/>
+				<Inventory/>
 			</div>
 			
 
