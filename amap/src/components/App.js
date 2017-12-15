@@ -1,57 +1,9 @@
 import React from 'react';
-<<<<<<< HEAD
 
 import StorePicker from './StorePicker';
-import Order from './Order';
-import Header from './Header';
-import Inventory from './Inventory';
-
-class App extends React.Component {
-	constructor(){
-		super();
-		this.state = {
-			veggies: {
-
-			}
-		}
-		this.addVeggie = this.addVeggie.bind(this);
-	}
-
-	addVeggie(veggie){
-		//maj du state + ajout nouveaux legumes + appliquer le state
-		const veggies = {...this.state.veggies};
-		veggies["veggie-1"] = veggie;
-
-
-
-		this.setState({veggies});
-	}
-	render(){
-		return(
-
-			
-			<div className="amap">
-			
-			<div className="menu">
-				<Header tagline="Des bons légumes"/>
-			</div>
-				{/*<StorePicker/>*/}
-
-				
-				<Order/>
-				<Inventory addVeggie={this.addVeggie}/>
-			</div>
-			
-
-
-			)
-	}
-}
-
-export default App;
-=======
 import Header from './Header';
 import Order from './Order';
+import Veggie from './Veggie';
 import Inventory from './Inventory';
 import sampleVeggies from '../sample-veggies';
 
@@ -90,7 +42,18 @@ class App extends React.Component {
       <div className="amap">
         <div className="menu">
           <Header tagline="Des bons legumes" />
+          <ul className="list-of-veggies">
+          {
+          	Object
+          		.keys(this.state.veggies)
+          		.map(key => <Veggie key={key} details={this.state.veggies[key]}/>)
+
+          		
+          }
+          </ul>
+          
         </div>
+
         <Order />
         <Inventory addVeggie={this.addVeggie} loadSamples={this.loadSamples} />
       </div>
@@ -99,4 +62,3 @@ class App extends React.Component {
 }
 
 export default App;
->>>>>>> d5301965adb10dc9e234f348af9dbde3395ddbfa
